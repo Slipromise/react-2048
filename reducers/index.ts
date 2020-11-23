@@ -1,4 +1,4 @@
-import { combineReducers, compose } from 'redux';
+import { combineReducers } from 'redux';
 
 import matrix from './matrix';
 import setting from './setting';
