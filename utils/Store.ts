@@ -1,6 +1,5 @@
-import { rootState } from 'definitions/state';
 import reducers from 'reducers';
-import { applyMiddleware, createStore, PreloadedState } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
 
 const { composeWithDevTools } =
   process.env.NODE_ENV === 'production'
