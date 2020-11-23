@@ -1,5 +1,6 @@
-import { combineReducers } from 'redux';
+import { combineReducers, compose } from 'redux';
 
-import matrix from './Ｍatrix';
-import Setting from './Setting';
-export default combineReducers({ matrix, Setting });
+import matrix from './matrix';
+import setting from './setting';
+import status from './status';
+export default combineReducers({ matrix, setting, status });

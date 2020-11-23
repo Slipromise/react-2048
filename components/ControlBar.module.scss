@@ -1,0 +1,12 @@
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+.container {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  @include media-breakpoint-up(sm) {
+    flex-direction: column;
+  }
+}

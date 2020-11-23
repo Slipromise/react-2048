@@ -1,7 +1,11 @@
+import { DialogType } from './dialog';
+
 export interface Setting {
-  baseCount: number;
   baseValue: number;
   generateCount: number;
+  gameMode: GameMode;
+  goalExponent: number;
+  spaceSideCount: number;
 }
 
 export interface MatrixItem {
@@ -10,3 +14,18 @@ export interface MatrixItem {
   position?: { x: number; y: number };
   origin?: MatrixItem[];
 }
+
+export enum GameMode {
+  Standard,
+  Timer,
+}
+
+export interface Status {
+  countDownSecond: number;
+  isPaused: boolean;
+  minCostTime: number;
+  bestScore: number;
+  dialogs: DialogType[];
+}
+
+export const START_TIME = 30;

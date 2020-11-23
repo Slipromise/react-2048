@@ -1,21 +1,21 @@
 import {
   ActionType,
   Direction,
-  goDirectionMatrixAction,
+  GoDirectionMatrixAction,
   InitMatrixAction,
-} from 'definitions/Action';
+} from 'definitions/action';
 
 export function initMatrix(
   totalCount: number,
-  generateCount: number,
+  generateCount = 2,
 ): InitMatrixAction {
   return { type: ActionType.INIT_MATRIX, totalCount, generateCount };
 }
 
 export function goDirectionMatrix(
   direction: Direction,
-  generateCount: number,
-): goDirectionMatrixAction {
+  generateCount = 1,
+): GoDirectionMatrixAction {
   return {
     type: ActionType.GO_DIRECTION_MATRIX,
     direction,

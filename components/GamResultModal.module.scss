@@ -1,0 +1,14 @@
+.modal_content {
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: transparent;
+}
+
+.modal_content :global(.modal-body) {
+  color: white;
+  white-space: pre-line;
+}
+
+.modal_content :global(.modal-footer) {
+  justify-content: center;
+}

@@ -1,0 +1,39 @@
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+
+.container {
+  //   background-color: $figure-caption-color;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.container > * {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background-color: #bbada0;
+  border-radius: 5px;
+  text-align: center;
+  color: white;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container > *:nth-child(3) {
+  padding: 0;
+  background-color: transparent;
+}
+
+.container .circularProgressingPath {
+  stroke: $primary;
+}
+
+.container .circularProgressingTrail {
+  stroke: #bbada0;
+}
+
+.container .circularProgressingText {
+  fill: $primary;
+}

@@ -1,4 +1,4 @@
-import { rootState } from 'definitions/State';
+import { rootState } from 'definitions/state';
 import reducers from 'reducers';
 import { applyMiddleware, createStore, PreloadedState } from 'redux';
 
@@ -25,3 +25,5 @@ const store = createStore(
 );
 
 export default store;
+
+export type rootState = ReturnType<typeof reducers>;

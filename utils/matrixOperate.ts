@@ -1,51 +1,9 @@
-import {
-  ActionType,
-  Direction,
-  goDirectionMatrixAction,
-  InitMatrixAction,
-} from 'definitions/Action';
-import { MatrixItem } from 'definitions/State';
-import { Action } from 'redux';
-
-const initialState: MatrixItem[] = [];
+import { Direction } from 'definitions/action';
+import { MatrixItem } from 'definitions/state';
 
 let uid = 0;
 
-const matrix = (
-  state = initialState,
-  action: Action<ActionType>,
-): MatrixItem[] => {
-  switch (action.type) {
-    case ActionType.INIT_MATRIX: {
-      const { totalCount, generateCount } = action as InitMatrixAction;
-      let newState: MatrixItem[] = [];
-      for (let i = 0; i < totalCount; i++) {
-        newState.push({
-          id: uid++,
-          value: 0,
-        });
-      }
-      newState = randomGenerate(newState, generateCount);
-      newState = tagPosition(newState);
-      return newState;
-    }
-    case ActionType.GO_DIRECTION_MATRIX: {
-      const { direction, generateCount } = action as goDirectionMatrixAction;
-      let newState = [...state];
-      newState = sortMatrix(newState, direction);
-      newState = combineMatrix(newState);
-      newState = alignMatrix(newState);
-      newState = sortMatrix(newState, direction);
-      newState = randomGenerate(newState, generateCount);
-      newState = tagPosition(newState);
-      return newState;
-    }
-    default:
-      return state;
-  }
-};
-
-function randomGenerate(
+export function randomGenerate(
   matrix: MatrixItem[],
   generateCount: number,
 ): MatrixItem[] {
@@ -58,7 +16,7 @@ function randomGenerate(
   return matrix;
 }
 
-function tagPosition(matrix: MatrixItem[]): MatrixItem[] {
+export function tagPosition(matrix: MatrixItem[]): MatrixItem[] {
   const baseCount = Math.pow(matrix.length, 1 / 2);
   return matrix.map((item, index) => {
     item.position = { x: index % baseCount, y: Math.floor(index / baseCount) };
@@ -66,13 +24,13 @@ function tagPosition(matrix: MatrixItem[]): MatrixItem[] {
   });
 }
 
-function combineMatrix(matrix: MatrixItem[]): MatrixItem[] {
+export function combineMatrix(matrix: MatrixItem[]): MatrixItem[] {
   const baseCount = Math.pow(matrix.length, 1 / 2);
   matrix = matrix.reduce(combineMatrixReducer(baseCount), []);
   return matrix;
 }
 
-function alignMatrix(matrix: MatrixItem[]): MatrixItem[] {
+export function alignMatrix(matrix: MatrixItem[]): MatrixItem[] {
   const baseCount = Math.pow(matrix.length, 1 / 2);
   let tempItems: MatrixItem[] = [];
   matrix = matrix.reduce(
@@ -96,7 +54,7 @@ function alignMatrix(matrix: MatrixItem[]): MatrixItem[] {
   return matrix;
 }
 
-const combineMatrixReducer = (
+export const combineMatrixReducer = (
   baseCount: number,
   tempItem: MatrixItem | null = null,
 ) => (
@@ -142,7 +100,11 @@ const combineMatrixReducer = (
   return [...accumulator, curr];
 };
 
-function sortMatrix(matrix: MatrixItem[], direction: Direction): MatrixItem[] {
+export function sortMatrix(
+  matrix: MatrixItem[],
+  direction: Direction,
+): MatrixItem[] {
+  matrix = [...matrix];
   const baseCount = Math.pow(matrix.length, 1 / 2);
   const verticallyResult: MatrixItem[] = [];
   for (let i = 0; i < matrix.length; i++) {
@@ -159,4 +121,39 @@ function sortMatrix(matrix: MatrixItem[], direction: Direction): MatrixItem[] {
     : verticallyResult.reverse();
 }
 
-export default matrix;
+export function createMatrix(count: number): MatrixItem[] {
+  const result: MatrixItem[] = [];
+  for (let i = 0; i < count; i++) {
+    result.push({
+      id: uid++,
+      value: 0,
+    });
+  }
+  return result;
+}
+
+export function directiveMatrix(
+  matrix: MatrixItem[],
+): { canLeft: boolean; canRight: boolean; canUp: boolean; canDown: boolean } {
+  return {
+    canLeft: canLeftMatrix(matrix),
+    canRight: canLeftMatrix(sortMatrix([...matrix], Direction.RIGHT)),
+    canUp: canLeftMatrix(sortMatrix([...matrix], Direction.UP)),
+    canDown: canLeftMatrix(sortMatrix([...matrix], Direction.DOWN)),
+  };
+}
+
+export function canLeftMatrix(matrix: MatrixItem[]): boolean {
+  const baseCount = Math.pow(matrix.length, 1 / 2);
+  let tempForwardValue = -1;
+  for (let i = 0; i < matrix.length; i++) {
+    const element = matrix[i];
+    if (tempForwardValue == 0 && element.value != 0) {
+      return true;
+    } else if (tempForwardValue != 0 && tempForwardValue == element.value) {
+      return true;
+    }
+    tempForwardValue = i % baseCount == baseCount - 1 ? -1 : element.value;
+  }
+  return false;
+}

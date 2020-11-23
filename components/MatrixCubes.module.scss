@@ -1,0 +1,68 @@
+@use "sass:list";
+@use 'sass:math';
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+
+$exponent: #eee4da, #eee1c9, #f3b27a, #f69664, #f77c5f, #f75f3b, #edd073,
+  #edcc62, #edc950, #edc53f, #edc22e, #b8e453, #a4df47, #91df5d, #8de454,
+  #7ce437;
+
+.container {
+  width: 80vmin;
+  height: 80vmin;
+  @include media-breakpoint-down(xs) {
+    width: 90vmin;
+    height: 90vmin;
+  }
+  background-color: #bbad9f;
+  padding: 5px;
+  @include media-breakpoint-up(lg) {
+    padding: 10px;
+  }
+  display: flex;
+  flex-direction: column;
+
+  border-radius: 5px;
+}
+
+.container :global(.col) {
+  background-color: #cdc1b4;
+  // border: 15px solid #bbad9f;
+  margin: 5px;
+  @include media-breakpoint-up(lg) {
+    margin: 10px;
+  }
+  padding: 0;
+  border-radius: 5px;
+}
+
+.container :global(.row) {
+  padding: 0;
+  flex-grow: 1;
+  margin: 0;
+}
+
+.cube {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border-radius: 5px;
+  color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @for $i from 1 to 16 {
+    &[data-value='#{math.pow(2,$i)}'] {
+      background-color: list.nth($exponent, $i);
+      color: #fff;
+    }
+  }
+}
+
+.cube h1 {
+  user-select: none;
+  @include media-breakpoint-down(xs) {
+    font-size: 1.5rem;
+  }
+}
