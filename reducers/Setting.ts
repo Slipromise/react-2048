@@ -1,6 +1,7 @@
-import { ActionType, SettingAction } from 'definitions/action';
-import { GameMode, Setting } from 'definitions/state';
 import { Action } from 'redux';
+
+import { ActionType, SettingAction } from '../definitions/action';
+import { GameMode, Setting } from '../definitions/state';
 
 const initialState: Setting = {
   baseValue: 2,

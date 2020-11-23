@@ -1,5 +1,6 @@
-import reducers from 'reducers';
 import { applyMiddleware, createStore } from 'redux';
+
+import reducers from '../reducers';
 
 const { composeWithDevTools } =
   process.env.NODE_ENV === 'production'

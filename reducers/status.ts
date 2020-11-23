@@ -1,10 +1,11 @@
+import { Action } from 'redux';
+
 import {
   ActionType,
   CountDownAction,
   PopupDialogAction,
-} from 'definitions/action';
-import { START_TIME, Status } from 'definitions/state';
-import { Action } from 'redux';
+} from '../definitions/action';
+import { START_TIME, Status } from '../definitions/state';
 
 const initialState: Status = {
   countDownSecond: START_TIME,

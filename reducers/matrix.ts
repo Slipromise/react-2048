@@ -1,10 +1,11 @@
+import { Action } from 'redux';
+
 import {
   ActionType,
   GoDirectionMatrixAction,
   InitMatrixAction,
-} from 'definitions/action';
-import { MatrixItem } from 'definitions/state';
-import { Action } from 'redux';
+} from '../definitions/action';
+import { MatrixItem } from '../definitions/state';
 import {
   alignMatrix,
   combineMatrix,
@@ -12,7 +13,7 @@ import {
   randomGenerate,
   sortMatrix,
   tagPosition,
-} from 'utils/matrixOperate';
+} from '../utils/matrixOperate';
 
 const initialState: MatrixItem[] = [];
 

@@ -1,5 +1,5 @@
-import { Direction } from 'definitions/action';
-import { MatrixItem } from 'definitions/state';
+import { Direction } from '../definitions/action';
+import { MatrixItem } from '../definitions/state';
 
 let uid = 0;
 
