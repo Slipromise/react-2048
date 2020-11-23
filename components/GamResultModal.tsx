@@ -1,16 +1,16 @@
-import { initMatrix } from 'actions/matrixAction';
-import { GameMode } from 'definitions/state';
+import React from 'react';
+import { Button, Modal } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { initMatrix } from '../actions/matrixAction';
+import { GameMode } from '../definitions/state';
 import {
   matrixDirectiveSelector,
   matrixSelector,
   matrixStatusSelector,
   settingSelector,
   statusSelector,
-} from 'hooks/useSelector';
-import React from 'react';
-import { Button, Modal } from 'react-bootstrap';
-import { useDispatch, useSelector } from 'react-redux';
-
+} from '../hooks/useSelector';
 import styles from './GamResultModal.module.scss';
 
 const GamResultModal: React.FC = () => {

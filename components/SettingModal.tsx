@@ -1,14 +1,14 @@
-import { initMatrix } from 'actions/matrixAction';
-import { removeSettingDialog, setConfig } from 'actions/settingAction';
-import { DialogType } from 'definitions/dialog';
-import { GameMode } from 'definitions/state';
-import { statusSelector } from 'hooks/useSelector';
 import Slider from 'rc-slider';
 import React, { useCallback, useEffect, useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { rootState } from 'utils/store';
 
+import { initMatrix } from '../actions/matrixAction';
+import { removeSettingDialog, setConfig } from '../actions/settingAction';
+import { DialogType } from '../definitions/dialog';
+import { GameMode } from '../definitions/state';
+import { statusSelector } from '../hooks/useSelector';
+import { rootState } from '../utils/store';
 import styles from './SettingModal.module.scss';
 const modeMarks = {
   [GameMode.Standard]: 'Standard',

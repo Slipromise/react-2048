@@ -1,9 +1,9 @@
-import { goDirectionMatrix } from 'actions/matrixAction';
-import { Direction } from 'definitions/action';
-import { KeyCode } from 'definitions/keyCode';
 import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { goDirectionMatrix } from '../actions/matrixAction';
+import { Direction } from '../definitions/action';
+import { KeyCode } from '../definitions/keyCode';
 import { matrixDirectiveSelector, settingSelector } from './useSelector';
 
 const handleKeys: string[] = [

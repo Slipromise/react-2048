@@ -3,7 +3,7 @@ import {
   Direction,
   GoDirectionMatrixAction,
   InitMatrixAction,
-} from 'definitions/action';
+} from '../definitions/action';
 
 export function initMatrix(
   totalCount: number,

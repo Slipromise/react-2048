@@ -2,9 +2,9 @@ import {
   ActionType,
   PopupDialogAction,
   SettingAction,
-} from 'definitions/action';
-import { DialogType } from 'definitions/dialog';
-import { GameMode } from 'definitions/state';
+} from '../definitions/action';
+import { DialogType } from '../definitions/dialog';
+import { GameMode } from '../definitions/state';
 
 export const setConfig = (settings: {
   generateCount: number;

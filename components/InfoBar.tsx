@@ -1,17 +1,17 @@
-import { countDownAction } from 'actions/statusAction';
-import { GameMode, START_TIME } from 'definitions/state';
-import {
-  isEndingSelector,
-  matrixStatusSelector,
-  settingSelector,
-  statusSelector,
-} from 'hooks/useSelector';
 import numeral from 'numeral';
 import React, { useEffect } from 'react';
 import { Col, Container, ProgressBar, Row } from 'react-bootstrap';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { countDownAction } from '../actions/statusAction';
+import { GameMode, START_TIME } from '../definitions/state';
+import {
+  isEndingSelector,
+  matrixStatusSelector,
+  settingSelector,
+  statusSelector,
+} from '../hooks/useSelector';
 import styles from './InfoBar.module.scss';
 
 const InfoBar: React.FC = () => {

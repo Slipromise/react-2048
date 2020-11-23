@@ -1,11 +1,11 @@
-import { initMatrix } from 'actions/matrixAction';
-import { popupSettingDialog } from 'actions/settingAction';
-import { settingSelector } from 'hooks/useSelector';
 import React from 'react';
 import { Button, Container } from 'react-bootstrap';
 import { FaCog, FaRedo, FaTrophy } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { initMatrix } from '../actions/matrixAction';
+import { popupSettingDialog } from '../actions/settingAction';
+import { settingSelector } from '../hooks/useSelector';
 import styles from './ControlBar.module.scss';
 
 const ControlBar: React.FC = () => {

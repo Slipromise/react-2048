@@ -1,7 +1,8 @@
-import { GameMode, MatrixItem, Setting, Status } from 'definitions/state';
 import { createSelector } from 'reselect';
-import { directiveMatrix } from 'utils/matrixOperate';
-import { rootState } from 'utils/store';
+
+import { GameMode, MatrixItem, Setting, Status } from '../definitions/state';
+import { directiveMatrix } from '../utils/matrixOperate';
+import { rootState } from '../utils/store';
 
 export const matrixSelector = (state: rootState): MatrixItem[] => state.matrix;
 

@@ -1,9 +1,9 @@
-import { goDirectionMatrix } from 'actions/matrixAction';
-import { Direction } from 'definitions/action';
 import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { GestureState } from 'react-use-gesture/dist/types';
 
+import { goDirectionMatrix } from '../actions/matrixAction';
+import { Direction } from '../definitions/action';
 import { matrixDirectiveSelector, settingSelector } from './useSelector';
 
 export const generateOnDragEnd = (): ((

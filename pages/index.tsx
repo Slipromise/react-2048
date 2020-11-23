@@ -1,18 +1,18 @@
 // import './_index.module.scss';
-import ControlBar from '@components/ControlBar';
-import GamResultModal from '@components/GamResultModal';
-import InfoBar from '@components/InfoBar';
-import MatrixCubes from '@components/MatrixCubes';
-import SettingModal from '@components/SettingModal';
-import { goDirectionMatrix, initMatrix } from 'actions/matrixAction';
-import { KeyboardEventHandlerProps } from 'definitions/keyCode';
-import useKeyEvent from 'hooks/useKeyEvent';
-import { settingSelector } from 'hooks/useSelector';
 import dynamic from 'next/dynamic';
 import * as React from 'react';
 import { Container } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { initMatrix } from '../actions/matrixAction';
+import ControlBar from '../components/ControlBar';
+import GamResultModal from '../components/GamResultModal';
+import InfoBar from '../components/InfoBar';
+import MatrixCubes from '../components/MatrixCubes';
+import SettingModal from '../components/SettingModal';
+import { KeyboardEventHandlerProps } from '../definitions/keyCode';
+import useKeyEvent from '../hooks/useKeyEvent';
+import { settingSelector } from '../hooks/useSelector';
 import styles from './index.module.scss';
 
 const KeyboardEventHandler = dynamic<KeyboardEventHandlerProps>(

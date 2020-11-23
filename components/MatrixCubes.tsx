@@ -1,10 +1,10 @@
-import { generateOnDragEnd } from 'hooks/useGestureEvent';
-import { warpMatrixSelector } from 'hooks/useSelector';
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { useGesture } from 'react-use-gesture';
 
+import { generateOnDragEnd } from '../hooks/useGestureEvent';
+import { warpMatrixSelector } from '../hooks/useSelector';
 import styles from './MatrixCubes.module.scss';
 
 const MatrixCubes: React.FC = () => {
