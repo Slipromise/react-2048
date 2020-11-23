@@ -1,4 +1,3 @@
-import { rootState } from 'definitions/state';
 import reducers from 'reducers';
 import { applyMiddleware, createStore, PreloadedState } from 'redux';
 
