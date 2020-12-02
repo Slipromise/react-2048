@@ -1,30 +1,25 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# React 2048
 
-## Getting Started
+## 演示
 
-First, run the development server:
+![Demo](./doc/demo.gif)
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+[實際遊玩](https://react-2048-phi.vercel.app/)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 概述
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+該專案目的在於嘗試新語言與套件，在技術上有大大進步空間，以下是該專案預計使用的技術與套件。
 
-## Learn More
+- Typescript
+- Sass(scss)
+- NextJS
+- Jest(暫未應用)
+- Storybook(暫未應用)
 
-To learn more about Next.js, take a look at the following resources:
+## 待做項目
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+因應事前文件閱讀與大量嘗試，導致一些細節與套件應用還未完善
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- 動畫react-transition-group
+- 單元測試Jest
+- 元件展示Storybook
