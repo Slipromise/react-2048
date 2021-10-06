@@ -2,7 +2,7 @@
 
 ## 演示
 
-![Demo](./doc/demo.gif)
+![Demo](./doc/demo.png)
 
 [實際遊玩](https://react-2048-phi.vercel.app/)
 
