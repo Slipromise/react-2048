@@ -9,17 +9,22 @@ $exponent: #eee4da, #eee1c9, #f3b27a, #f69664, #f77c5f, #f75f3b, #edd073,
   #7ce437;
 
 .container {
+  position: relative;
   width: 80vmin;
   height: 80vmin;
+
   @include media-breakpoint-down(xs) {
     width: 90vmin;
     height: 90vmin;
   }
+
   background-color: #bbad9f;
-  padding: 5px;
+  padding: 0;
+
   @include media-breakpoint-up(lg) {
     padding: 10px;
   }
+
   display: flex;
   flex-direction: column;
 
@@ -30,9 +35,11 @@ $exponent: #eee4da, #eee1c9, #f3b27a, #f69664, #f77c5f, #f75f3b, #edd073,
   background-color: #cdc1b4;
   // border: 15px solid #bbad9f;
   margin: 5px;
+
   @include media-breakpoint-up(lg) {
     margin: 10px;
   }
+
   padding: 0;
   border-radius: 5px;
 }
@@ -52,6 +59,7 @@ $exponent: #eee4da, #eee1c9, #f3b27a, #f69664, #f77c5f, #f75f3b, #edd073,
   display: flex;
   align-items: center;
   justify-content: center;
+
   @for $i from 1 to 16 {
     &[data-value='#{math.pow(2,$i)}'] {
       background-color: list.nth($exponent, $i);
@@ -62,7 +70,63 @@ $exponent: #eee4da, #eee1c9, #f3b27a, #f69664, #f77c5f, #f75f3b, #edd073,
 
 .cube h1 {
   user-select: none;
+
   @include media-breakpoint-down(xs) {
     font-size: 1.5rem;
+  }
+}
+
+.animationCube {
+  position: absolute;
+  left: calc(var(--x) * var(--baseWidth));
+  top: calc(var(--y) * var(--baseWidth));
+  width: var(--baseWidth);
+  height: var(--baseWidth);
+
+  @for $i from 1 to 16 {
+    &[data-value='#{math.pow(2,$i)}']::after {
+      background-color: list.nth($exponent, $i);
+
+    }
+  }
+
+  color: #fff;
+  border: 5px;
+  transition: left 0.3s,
+  top 0.3s,
+  opacity 0.3s,
+  transform 0.3s;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  opacity: 1;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    margin: 5px;
+    border-radius: 5px;
+
+  }
+
+  h1 {
+    z-index: 2;
+  }
+
+  &:global(.enter) {
+    transform: scale(0);
+  }
+
+  &:global(.enter-active) {
+    transform: scale(1.2);
+  }
+
+  &:global(.enter-done) {
+    transform: scale(1);
+  }
+
+  &[data-visible='false'] {
+    opacity: 0;
   }
 }

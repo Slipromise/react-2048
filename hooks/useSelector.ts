@@ -25,6 +25,45 @@ export const warpMatrixSelector = createSelector(
     }, []),
 );
 
+type Cube = {
+  id: number;
+  value: number;
+  x: number;
+  y: number;
+  isVisible: boolean;
+};
+
+export const existMatrixSelector = createSelector(
+  (state: rootState): MatrixItem[] => state.matrix,
+  (items): Cube[] => {
+    const result: Cube[] = [];
+    items.forEach((item) => {
+      if (item.value > 0) {
+        result.unshift({
+          id: item.id,
+          value: item.value,
+          x: item.position?.x || 0,
+          y: item.position?.y || 0,
+          isVisible: true,
+        });
+      }
+      const childItems = item.origin;
+      while (childItems && childItems.length > 0) {
+        const _item = childItems.pop();
+        _item &&
+          result.push({
+            id: _item.id,
+            value: _item.value,
+            x: item.position?.x || 0,
+            y: item.position?.y || 0,
+            isVisible: false,
+          });
+      }
+    });
+    return result;
+  },
+);
+
 export const matrixStatusSelector = createSelector(
   (state: rootState): MatrixItem[] => state.matrix,
   (items): { extraSecond: number; score: number; currentExponent: number } => {
